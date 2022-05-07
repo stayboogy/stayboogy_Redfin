@@ -93,7 +93,7 @@ extern "C" {
 }
 
 #ifdef TW_INCLUDE_CRYPTO
-//#include "crypto/fde/cryptfs.h"
+// #include "crypto/fde/cryptfs.h"
 #include "gui/rapidxml.hpp"
 #include "gui/pages.hpp"
 #ifdef TW_INCLUDE_FBE
@@ -431,7 +431,7 @@ void TWPartitionManager::Decrypt_Data() {
 			Set_Crypto_Type("file");
 #ifdef TW_INCLUDE_FBE_METADATA_DECRYPT
 #ifdef USE_FSCRYPT
-if (android::vold::fscrypt_mount_metadata_encrypted(Decrypt_Data->Actual_Block_Device, Decrypt_Data->Mount_Point, false, false, Decrypt_Data->Current_File_System)) {
+			if (android::vold::fscrypt_mount_metadata_encrypted(Decrypt_Data->Actual_Block_Device, Decrypt_Data->Mount_Point, false, false, Decrypt_Data->Current_File_System)) {
 				std::string crypto_blkdev = android::base::GetProperty("ro.crypto.fs_crypto_blkdev", "error");
 				Decrypt_Data->Decrypted_Block_Device = crypto_blkdev;
 				LOGINFO("Successfully decrypted metadata encrypted data partition with new block device: '%s'\n", crypto_blkdev.c_str());
@@ -1976,8 +1976,6 @@ int TWPartitionManager::Decrypt_Device(string Password, int user_id) {
 					gui_msg(Msg("decrypting_user_fbe=Attempting to decrypt FBE for user {1}...")(tmp_user_id));
 					if (android::keystore::Decrypt_User(tmp_user_id, Password) ||
 					(Password != "!" && android::keystore::Decrypt_User(tmp_user_id, "!"))) { // "!" means default password
-						gui_msg(Msg("decrypt_user_success_fbe=User {1} Decrypted Successfully")(tmp_user_id));
-					(Password != "!" && Decrypt_User(tmp_user_id, "!"))) { // "!" means default password
 						gui_msg(Msg("decrypt_user_success_fbe=User {1} Decrypted Successfully")(tmp_user_id));
 						Mark_User_Decrypted(tmp_user_id);
 					} else {

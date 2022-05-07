@@ -131,7 +131,7 @@ LOCAL_C_INCLUDES += \
     $(LOCAL_PATH)/minuitwrp/include \
     $(LOCAL_PATH)/twinstall/include
 
-LOCAL_STATIC_LIBRARIES += libguitwrp libmodprobe
+LOCAL_STATIC_LIBRARIES += libguitwrp libmodprobe libvold
 LOCAL_SHARED_LIBRARIES += libz libc libcutils libstdc++ libtar libblkid libminuitwrp libmtdutils libtwadbbu 
 LOCAL_SHARED_LIBRARIES += libbootloader_message libcrecovery libtwrpdigest libc++ libaosprecovery libcrypto libbase 
 LOCAL_SHARED_LIBRARIES += libziparchive libselinux libdl_android.bootstrap

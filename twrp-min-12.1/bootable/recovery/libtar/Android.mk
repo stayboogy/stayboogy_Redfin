@@ -60,7 +60,7 @@ ifeq ($(TW_INCLUDE_CRYPTO_FBE), true)
     else
         LOCAL_CFLAGS += -DUSE_FSCRYPT_POLICY_V2
     endif
-        LOCAL_C_INCLUDES += system/vold
+    LOCAL_C_INCLUDES += system/vold
 endif
 
 ifeq ($(TW_LIBTAR_DEBUG),true)
@@ -84,7 +84,7 @@ LOCAL_STATIC_LIBRARIES += libselinux
 
 ifeq ($(TW_INCLUDE_CRYPTO_FBE), true)
     LOCAL_CFLAGS += -DUSE_FSCRYPT
-    LOCAL_C_INCLUDES += system/vold    
+    LOCAL_C_INCLUDES += system/vold
 endif
 
 ifeq ($(TW_LIBTAR_DEBUG),true)

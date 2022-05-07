@@ -178,7 +178,7 @@ ifeq ($(TW_INCLUDE_CRYPTO), true)
     endif
     # FBE files
     ifeq ($(TW_INCLUDE_CRYPTO_FBE), true)
-        RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libtwrpfscrypt.so
+         RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libtwrpfscrypt.so
         RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/android.security.maintenance-ndk_platform.so
         RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/android.system.keystore2-V1-ndk_platform.so
         RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/android.security.apc-ndk_platform.so
@@ -229,7 +229,6 @@ ifeq ($(TW_INCLUDE_CRYPTO), true)
         RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libhardware_legacy.so
         RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/android.system.suspend@1.0.so
         RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/fscryptpolicyget
-
 
         ifneq ($(wildcard system/keymaster/keymaster_stl.cpp),)
             RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster_portable.so
@@ -432,7 +431,7 @@ LOCAL_POST_INSTALL_CMD += \
         LOCAL_POST_INSTALL_CMD += \
             && cp $(TARGET_OUT_ETC)/mke2fs.conf $(TARGET_RECOVERY_ROOT_OUT)/system/etc/mke2fs.conf
     endif
-     LOCAL_REQUIRED_MODULES += init_second_stage.recovery reboot.recovery plat_service_contexts plat_hardware_contexts vndservice_contexts plat_keystore2_key_contexts
+LOCAL_REQUIRED_MODULES += init_second_stage.recovery reboot.recovery plat_service_contexts plat_hardware_contexts vndservice_contexts plat_keystore2_key_contexts
 include $(BUILD_PHONY_PACKAGE)
 
 # copy license file for OpenAES

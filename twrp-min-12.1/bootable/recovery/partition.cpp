@@ -750,8 +750,7 @@ bool TWPartition::Decrypt_FBE_DE() {
 	ExcludeAll(Mount_Point + "/gsi"); // cow devices
 
 	int retry_count = 3;
-        while (!android::keystore::Decrypt_DE() && --retry_count)
-		usleep(2000);
+	while (!android::keystore::Decrypt_DE() && --retry_count)
 		usleep(2000);
 	if (retry_count > 0) {
 		PartitionManager.Set_Crypto_State();
@@ -759,7 +758,7 @@ bool TWPartition::Decrypt_FBE_DE() {
 		Is_Decrypted = false;
 		DataManager::SetValue(TW_IS_ENCRYPTED, 1);
 		string filename;
-                int pwd_type = android::keystore::Get_Password_Type(0, filename);
+		int pwd_type = android::keystore::Get_Password_Type(0, filename);
 		if (pwd_type < 0) {
 			LOGERR("This TWRP does not have synthetic password decrypt support\n");
 			pwd_type = 0;  // default password
@@ -3380,20 +3379,21 @@ int TWPartition::Decrypt_Adopted() {
 			thekey.append(buf, n);
 		}
 		close(fdkey);
-// unsigned char* key = (unsigned char*) thekey.data();
+		// unsigned char* key = (unsigned char*) thekey.data();
 		// cryptfs_revert_ext_volume(part_guid);
+
 		// ret = cryptfs_setup_ext_volume(part_guid, Adopted_Block_Device.c_str(), key, thekey.size(), crypto_blkdev);
 		if (ret == 0) {
 			LOGINFO("adopted storage new block device: '%s'\n", crypto_blkdev);
 			Decrypted_Block_Device = crypto_blkdev;
 			Is_Decrypted = true;
 			Is_Encrypted = true;
-                        // cryptfs_revert_ext_volume(part_guid);
+			Find_Actual_Block_Device();
 			if (!Mount_Storage_Retry(false)) {
 				LOGERR("Failed to mount decrypted adopted storage device\n");
 				Is_Decrypted = false;
 				Is_Encrypted = false;
-				cryptfs_revert_ext_volume(part_guid);
+				// cryptfs_revert_ext_volume(part_guid);
 				ret = 1;
 			} else {
 				UnMount(false);
@@ -3438,7 +3438,7 @@ void TWPartition::Revert_Adopted() {
 	if (!Adopted_GUID.empty()) {
 		PartitionManager.Remove_MTP_Storage(Mount_Point);
 		UnMount(false);
-                // cryptfs_revert_ext_volume(Adopted_GUID.c_str());
+		// cryptfs_revert_ext_volume(Adopted_GUID.c_str());
 		Is_Adopted_Storage = false;
 		Is_Encrypted = false;
 		Is_Decrypted = false;
