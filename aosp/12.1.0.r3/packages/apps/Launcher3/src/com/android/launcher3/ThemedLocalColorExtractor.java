@@ -165,12 +165,10 @@ public class ThemedLocalColorExtractor extends LocalColorExtractor implements
         this.listener = listener;
     }
 
-    @Override
     public void addLocation(List<RectF> locations) {
         wallpaperManager.addOnColorsChangedListener(this, locations);
     }
 
-    @Override
     public void removeLocations() {
         wallpaperManager.removeOnColorsChangedListener(this);
     }
@@ -199,7 +197,6 @@ public class ThemedLocalColorExtractor extends LocalColorExtractor implements
         }
     }
 
-    @Override
     public void getExtractedRectForView(Launcher launcher, int pageId, View v,
             RectF colorExtractionRectOut) {
         Rect viewRect = tempRect;
@@ -210,7 +207,6 @@ public class ThemedLocalColorExtractor extends LocalColorExtractor implements
         getExtractedRectForViewRect(launcher, pageId, viewRect, colorExtractionRectOut);
     }
 
-    @Override
     public void getExtractedRectForViewRect(Launcher launcher, int pageId, Rect rectInDragLayer,
             RectF colorExtractionRectOut) {
         // If the view hasn't been measured and laid out, we cannot do this.
@@ -259,7 +255,7 @@ public class ThemedLocalColorExtractor extends LocalColorExtractor implements
     @Override
     public void onColorsChanged(RectF area, WallpaperColors colors) {
         if (listener != null) {
-            listener.onColorsChanged(area, generateColorsOverride(colors));
+            listener.onColorsChanged(generateColorsOverride(colors));
         }
     }
 }
