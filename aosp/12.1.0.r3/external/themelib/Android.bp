@@ -1,0 +1,9 @@
+java_library {
+    name: "themelib",
+    static_libs: [
+        "colorkt",
+    ],
+    srcs: [
+        "src/main/**/*.kt",
+    ],
+}
