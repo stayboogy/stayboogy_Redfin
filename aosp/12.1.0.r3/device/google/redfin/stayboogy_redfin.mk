@@ -25,7 +25,7 @@ endif
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
 
 # Enable mainline checking
-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
 
 #
 # All components inherited here go to system_ext image
@@ -70,7 +70,7 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 
-#$(call inherit-product, vendor/stayboogy/stayboogy.mk)
+$(call inherit-product, vendor/stayboogy/stayboogy.mk)
 
 PRODUCT_MANUFACTURER := Google
 PRODUCT_BRAND := Android
