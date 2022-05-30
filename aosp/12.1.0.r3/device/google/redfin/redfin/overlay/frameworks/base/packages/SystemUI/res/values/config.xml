@@ -111,6 +111,4 @@
 
     <bool name="config_enableDisplayCutoutProtection">true</bool>
 
-    <!-- Whether global actions should show an informational message about changes in S -->
-    <bool name="global_actions_show_change_info">true</bool>
 </resources>
