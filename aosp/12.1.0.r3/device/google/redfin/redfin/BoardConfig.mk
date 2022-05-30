@@ -22,6 +22,14 @@ else
   TARGET_RECOVERY_UI_MARGIN_HEIGHT := 165
   USES_DEVICE_GOOGLE_REDFIN := true
 
+# stayboogy
+
+# Create Factory Recovery
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := false
+
+# end
+
   include device/google/redbull/BoardConfig-common.mk
 
   # Testing related defines
