@@ -14,6 +14,8 @@
      limitations under the License.
 -->
 <resources>
+    <color name="ic_contacts_launcher_background">@*android:color/accent_device_default_light</color>
+
     <color name="ic_add_contact_shortcut_background">#F5F5F5</color>
 
     <!-- 87% black -->
@@ -28,7 +30,7 @@
     <color name="quickcontact_entry_sub_header_text_color">#737373</color>
     <color name="quickcontact_entry_header_text_color">#202020</color>
 
-    <color name="action_bar_background">#2a56c6</color>
+    <color name="action_bar_background">@*android:color/accent_device_default_light</color>
 
     <color name="nav_item_selected_background">#0f000000</color>
 
@@ -40,8 +42,8 @@
     <!-- Color of the status bar above the contextual selection bar. -->
     <color name="contextual_selection_bar_status_bar_color">#bababa</color>
 
-    <color name="primary_color_dark">#1c3aa9</color>
-    <color name="primary_color">#2a56c6</color>
+    <color name="primary_color_dark">@*android:color/accent_device_default_light</color>
+    <color name="primary_color">@*android:color/accent_device_default_light</color>
 
     <color name="group_primary_color_dark">#546E7A</color>
     <color name="group_primary_color">#607D8B</color>
