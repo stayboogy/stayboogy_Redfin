@@ -234,7 +234,7 @@ public final class FeatureFlags {
             "Enables widgets in Launcher preview for the Wallpaper app.");
 
     public static final BooleanFlag QUICK_WALLPAPER_PICKER = getDebugFlag(
-            "QUICK_WALLPAPER_PICKER", true,
+            "QUICK_WALLPAPER_PICKER", false,
             "Shows quick wallpaper picker in long-press menu");
 
     public static final BooleanFlag ENABLE_BACK_SWIPE_HOME_ANIMATION = getDebugFlag(
