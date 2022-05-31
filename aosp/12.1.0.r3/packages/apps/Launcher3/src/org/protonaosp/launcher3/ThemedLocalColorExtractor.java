@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.launcher3;
+ package org.protonaosp.launcher3;
 
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
