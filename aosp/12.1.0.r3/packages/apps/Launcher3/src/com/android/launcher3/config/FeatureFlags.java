@@ -40,7 +40,7 @@ public final class FeatureFlags {
     private FeatureFlags() { }
 
     public static boolean showFlagTogglerUi(Context context) {
-          return Utilities.isDevelopersOptionsEnabled(context);
+         return Utilities.isDevelopersOptionsEnabled(context);
     }
 
     /**
