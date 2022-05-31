@@ -334,6 +334,6 @@ public final class FeatureFlags {
     }
 
     private static BooleanFlag getDebugFlag(String key, boolean defaultValue, String description) {
-          return new DebugFlag(key, defaultValue, description);
+         return new DebugFlag(key, defaultValue, description);
     }
 }
