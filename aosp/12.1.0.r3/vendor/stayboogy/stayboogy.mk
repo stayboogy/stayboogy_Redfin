@@ -1,7 +1,8 @@
 # stayboogy
 
 PRODUCT_PACKAGES += \
-	ThemePicker
+	ThemePicker \
+	Backgrounds
 
 include vendor/stayboogy/opensource/prebuilt/audio.mk
 
