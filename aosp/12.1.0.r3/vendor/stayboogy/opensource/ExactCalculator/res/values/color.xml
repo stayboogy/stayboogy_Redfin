@@ -18,7 +18,7 @@
 <resources>
 
     <!-- Default accent color. -->
-    <color name="calculator_accent_color">#167c80</color>
+    <color name="calculator_accent_color">@*android:color/accent_device_default_light</color>
 
     <!-- Primary color (Color for the toolbars). -->
     <color name="calculator_primary_color">#fafafa</color>
