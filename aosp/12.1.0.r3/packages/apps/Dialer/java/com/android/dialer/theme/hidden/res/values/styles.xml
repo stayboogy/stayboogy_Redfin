@@ -17,6 +17,7 @@
 <resources>
   <!-- Update to Theme.AppCompat.Light.NoActionBar once we no longer depend on ActionBars. -->
   <style name="Dialer" parent="Theme.AppCompat.Light">
+         <item name="android:forceDarkAllowed">true</item>
     <!-- Used to automatically style all buttons in Dialer -->
     <item name="android:textAppearanceButton">@style/DialerButtonTextStyle</item>
     <item name="android:colorButtonNormal">?android:attr/colorPrimary</item>
