@@ -30,6 +30,7 @@
 
     <!-- Application theme. -->
     <style name="BugleTheme" parent="BugleBaseTheme">
+         <item name="android:forceDarkAllowed">true</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
          <item name="android:dropDownListViewStyle">@style/DropDownListViewStyle</item>
          <item name="colorPrimary">@color/action_bar_background_color</item>
