@@ -2,7 +2,8 @@
 
 PRODUCT_PACKAGES += \
 	ThemePicker \
-	Backgrounds
+	Backgrounds \
+	ExactCalculator
 
 include vendor/stayboogy/opensource/prebuilt/audio.mk
 
