@@ -7,8 +7,7 @@ PRODUCT_PACKAGES += \
 	Recorder
 
 # AuroraStore Prebuilt
-include vendor/stayboogy/opensource/prebuilt/AuroraStore/Android.mk
-PRODUCT_PACKAGES += AuroraDroid AuroraStore AuroraServices
+include vendor/stayboogy/opensource/prebuilt/AuroraStore/Aurora.mk
 
 include vendor/stayboogy/opensource/prebuilt/audio.mk
 
