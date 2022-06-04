@@ -37,14 +37,14 @@
     <color name="conversation_compose_divider_start">#44000000</color>
 
     <color name="message_text">#000000</color>
-    <color name="timestamp_text_outgoing">#99323232</color>
-    <color name="timestamp_text_incoming">#99ffffff</color>
+    <color name="timestamp_text_outgoing">#323232</color>
+    <color name="timestamp_text_incoming">#323232</color>
     <color name="timestamp_text_failed">#99ff0000</color>
     <color name="compose_send_text_color">#000000</color>
 
     <color name="message_title_text">#ff323232</color>
     <color name="message_download_failed_status_text">#000000</color>
-    <color name="message_info_text">#99ffffff</color>
+    <color name="message_info_text">#323232</color>
     <color name="message_info_text_incoming_download_failed">#6a6a6a</color>
     <color name="message_download_failed_timestamp_text">#007fce</color>
     <color name="message_failed_timestamp_text">#99ff0000</color>
@@ -60,7 +60,7 @@
     <color name="subject_editor_bubble">#ffffffff</color>
     <color name="message_text_color_incoming">#ffffffff</color>
     <color name="message_text_color_incoming_download_failed">#6a6a6a</color>
-    <color name="message_text_color_outgoing">#ff323232</color>
+    <color name="message_text_color_outgoing">@color/primary_color</color>
     <color name="conversation_background">#eeeeee</color>
     <color name="conversation_edge_effect">#9d9d9d</color>
     <color name="compose_message_send_color">@color/primary_color</color>
@@ -68,7 +68,7 @@
     <color name="message_bubble_color_outgoing">#ffffffff</color>
     <color name="message_error_bubble_color_incoming">#e2e2e2</color>
     <color name="message_audio_button_color_incoming">#ffffffff</color>
-    <color name="message_bubble_color_selected">#8BC34A</color>
+    <color name="message_bubble_color_selected">@color/primary_color</color>
     <color name="message_image_selected_tint">#80689F38</color>
     <color name="generic_video_icon">#ff808080</color>
 
