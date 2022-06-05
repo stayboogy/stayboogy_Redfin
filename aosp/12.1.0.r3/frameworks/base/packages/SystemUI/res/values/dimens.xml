@@ -248,7 +248,7 @@
     <dimen name="status_bar_padding_end">8dp</dimen>
 
     <!-- the padding on the top of the statusbar (usually 0) -->
-    <dimen name="status_bar_padding_top">0dp</dimen>
+    <dimen name="status_bar_padding_top">2dp</dimen>
 
     <!-- the radius of the overflow dot in the status bar -->
     <dimen name="overflow_dot_radius">2dp</dimen>
@@ -425,7 +425,7 @@
     <!-- Size of the icon inside each item in the ringer selector drawer. -->
     <dimen name="volume_ringer_drawer_icon_size">24dp</dimen>
 
-    <dimen name="rounded_corner_content_padding">0dp</dimen>
+    <dimen name="rounded_corner_content_padding">50px</dimen>
 
     <!-- Floating rotation button -->
     <dimen name="floating_rotation_button_diameter">40dp</dimen>
@@ -672,7 +672,7 @@
     <dimen name="kg_framed_avatar_size">32dp</dimen>
 
     <!-- Margin on the left side of the carrier text on Keyguard -->
-    <dimen name="keyguard_carrier_text_margin">16dp</dimen>
+    <dimen name="keyguard_carrier_text_margin">0px</dimen>
 
     <!-- Additional translation (downwards) for appearing notifications when going to the full shade
          from Keyguard. -->
