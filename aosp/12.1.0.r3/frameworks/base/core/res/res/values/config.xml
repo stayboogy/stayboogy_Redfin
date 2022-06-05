@@ -977,7 +977,7 @@
             4 - Go to voice assist
             5 - Go to assistant (Settings.Secure.ASSISTANT)
     -->
-    <integer name="config_longPressOnPowerBehavior">5</integer>
+    <integer name="config_longPressOnPowerBehavior">1</integer>
 
     <!-- The time in milliseconds after which a press on power button is considered "long". -->
     <integer name="config_longPressOnPowerDurationMs">500</integer>
@@ -1002,7 +1002,7 @@
             0 - Nothing
             1 - Global actions menu
     -->
-    <integer name="config_veryLongPressOnPowerBehavior">0</integer>
+    <integer name="config_veryLongPressOnPowerBehavior">1</integer>
 
     <!-- Control the behavior when the user presses the power and volume up buttons together.
             0 - Nothing
@@ -1036,7 +1036,7 @@
             1 - Toggle theater mode setting
             2 - Brightness boost
     -->
-    <integer name="config_doublePressOnPowerBehavior">0</integer>
+    <integer name="config_doublePressOnPowerBehavior">2</integer>
 
     <!-- Control the behavior when the user triple presses the power button.
             0 - Nothing
@@ -5141,9 +5141,9 @@
     <string-array name="config_accessibility_allowed_install_source" translatable="false"/>
 
     <!-- Default value for Settings.ASSIST_LONG_PRESS_HOME_ENABLED -->
-    <bool name="config_assistLongPressHomeEnabledDefault">true</bool>
+    <bool name="config_assistLongPressHomeEnabledDefault">false</bool>
     <!-- Default value for Settings.ASSIST_TOUCH_GESTURE_ENABLED -->
-    <bool name="config_assistTouchGestureEnabledDefault">true</bool>
+    <bool name="config_assistTouchGestureEnabledDefault">false</bool>
 
     <!-- The maximum byte size of the information contained in the bundle of
     HotwordDetectedResult. -->
