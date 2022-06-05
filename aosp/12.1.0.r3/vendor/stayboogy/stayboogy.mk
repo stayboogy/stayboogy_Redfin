@@ -3,7 +3,7 @@
 include vendor/stayboogy/opensource/prebuilt/audio.mk
 
 # custom colorful bootanimation
-#$(call inherit-product, vendor/stayboogy/bootanimation/bootanimation.mk)
+$(call inherit-product, vendor/stayboogy/bootanimation/bootanimation.mk)
 
 PRODUCT_PACKAGES += \
 	ThemePicker \
