@@ -1,18 +1,25 @@
 # stayboogy
 
+include vendor/stayboogy/opensource/prebuilt/audio.mk
+
+# custom colorful bootanimation
+#$(call inherit-product, vendor/stayboogy/bootanimation/bootanimation.mk)
+
 PRODUCT_PACKAGES += \
 	ThemePicker \
 	Backgrounds \
 	ExactCalculator \
 	Recorder
 
+PRODUCT_PRODUCT_PROPERTIES +=\
+	ro.build.version.custom=
+
+# Lawnchair Prebuilt
+#include vendor/stayboogy/opensource/prebuilt/lawnchair/lawnchair.mk
+
+# Pixel Launcher Prebuilt
+#include vendor/stayboogy/opensource/prebuilt/PixelLauncher/PixelLauncher.mk
+
 # AuroraStore Prebuilt
-include vendor/stayboogy/opensource/prebuilt/AuroraStore/Aurora.mk
+#include vendor/stayboogy/opensource/prebuilt/AuroraStore/Aurora.mk
 
-include vendor/stayboogy/opensource/prebuilt/audio.mk
-
-# lawnicons (not sure if this even works honestly)
-include vendor/stayboogy/opensource/lawnicons/overlay.mk
-
-PRODUCT_PACKAGE_OVERLAYS += vendor/stayboogy/opensource/lawnicons/overlay
-# lawnicons end
