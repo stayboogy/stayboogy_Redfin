@@ -486,7 +486,7 @@
          Note that while rounded.xml includes the entire path (including the horizontal and vertical
          corner edges), this pulls out just the curve.
      -->
-    <string name="config_rounded_mask" translatable="false">"M8,0C3.6,0,0,3.6,0,8"</string>
+    <string name="config_rounded_mask" translatable="false">"M156,0 C76,4 58,5 31,31 5,58 4,76 0,156"</string>
 
     <!-- Preferred refresh rate at keyguard, if supported by the display. Overrides
          keyguardMaxRefreshRate. -->
@@ -515,23 +515,26 @@
       SystemUI will draw this "protection path" instead of the display cutout path that is normally
       used for anti-aliasing.
 
-      This path will only be drawn when the front-facing camera turns on, otherwise the main
-      DisplayCutout path will be rendered
-       -->
-    <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection"></string>
+       Configure 13px of extra protection around the front-facing camera -->
+    <string translatable="false" name="config_frontBuiltInDisplayCutoutProtection">
+        M 29,77
+        a 52,52 0 1 0 104,0
+        a 52,52 0 1 0 -104,0
+        Z
+    </string>
 
     <!--  ID for the camera that needs extra protection -->
-    <string translatable="false" name="config_protectedCameraId"></string>
+    <string translatable="false" name="config_protectedCameraId">1</string>
 
     <!-- Comma-separated list of packages to exclude from camera protection e.g.
     "com.android.systemui,com.android.xyz" -->
-    <string translatable="false" name="config_cameraProtectionExcludedPackages"></string>
+    <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
 
     <!--  Flag to turn on the rendering of the above path or not  -->
-    <bool name="config_enableDisplayCutoutProtection">false</bool>
+    <bool name="config_enableDisplayCutoutProtection">true</bool>
 
     <!-- Respect drawable/rounded.xml intrinsic size for multiple radius corner path customization -->
-    <bool name="config_roundedCornerMultipleRadius">false</bool>
+    <bool name="config_roundedCornerMultipleRadius">true</bool>
 
     <!-- Controls can query 2 preferred applications for limited number of suggested controls.
          This config value should contain a list of package names of thoses preferred applications.
