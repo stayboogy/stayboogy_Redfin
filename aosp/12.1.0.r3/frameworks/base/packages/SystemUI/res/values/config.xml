@@ -130,7 +130,7 @@
     <integer name="keyguard_max_notification_count">-1</integer>
 
     <!-- Doze: does this device support STATE_DOZE?  -->
-    <bool name="doze_display_state_supported">false</bool>
+    <bool name="doze_display_state_supported">true</bool>
 
     <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
     <bool name="doze_suspend_display_state_supported">false</bool>
@@ -144,7 +144,7 @@
     <!-- Doze: only register sensors that use prox when device is in certain Display states. This
      delays registering sensors when device first shows dozing UI but the
      Display & Power state hasn't changed to low-power mode yet. -->
-    <bool name="doze_selectively_register_prox">false</bool>
+    <bool name="doze_selectively_register_prox">true</bool>
 
     <!-- Doze: whether the single tap sensor uses the proximity sensor.
      If both this parameter and doze_selectively_register_prox are true, registration for the
@@ -176,7 +176,7 @@
     <!-- Type of a sensor that provides a low-power estimate of the desired display
          brightness, suitable to listen to while the device is asleep (e.g. during
          always-on display) -->
-    <string name="doze_brightness_sensor_type" translatable="false"></string>
+    <string name="doze_brightness_sensor_type" translatable="false">com.google.sensor.binned_brightness</string>
 
     <!-- Name of a sensor per posture state that provides a low-power estimate of the desired
          display brightness, suitable to listen to while the device is asleep (e.g. during
@@ -189,7 +189,7 @@
     </string-array>
 
     <!-- Override value to use for proximity sensor.  -->
-    <string name="proximity_sensor_type" translatable="false"></string>
+    <string name="proximity_sensor_type" translatable="false">android.sensor.light</string>
 
     <!-- Sensor type per posture state to use for proximity sensor -->
     <string-array name="proximity_sensor_posture_mapping" translatable="false">
@@ -201,16 +201,16 @@
 
     <!-- If using proximity_sensor_type, specifies a threshold value to distinguish near and
          far break points. A sensor value less than this is considered "near". -->
-    <item name="proximity_sensor_threshold" translatable="false" format="float" type="dimen"></item>
+    <item name="proximity_sensor_threshold" translatable="false" format="float" type="dimen">12</item>
 
     <!-- If using proximity_sensor_type, specifies a threshold value to distinguish near and
          far break points. A sensor value more than this is considered "far". If not set,
          proximity_sensor_threshold is used. This allows one to implement a latching mechanism for
          noisy sensors. -->
-    <item name="proximity_sensor_threshold_latch" translatable="false" format="float" type="dimen"></item>
+    <item name="proximity_sensor_threshold_latch" translatable="false" format="float" type="dimen">24</item>
 
     <!-- Override value to use for proximity sensor as confirmation for proximity_sensor_type. -->
-    <string name="proximity_sensor_secondary_type" translatable="false"></string>
+    <string name="proximity_sensor_secondary_type" translatable="false">android.sensor.proximity</string>
 
     <!-- Sensor type per posture state to use for proximity sensor as a confirmation for
         proximity_sensor_type. -->
@@ -224,7 +224,7 @@
     <!-- If using proximity_sensor_secondary_type, specifies a threshold value to distinguish
          near and far break points. A sensor value less than this is considered "near". -->
     <item name="proximity_sensor_secondary_threshold" translatable="false" format="float"
-          type="dimen"></item>
+          type="dimen">5</item>
 
     <!-- If using proximity_sensor_secondary_type, specifies a threshold value to distinguish near and
          far break points. A sensor value more than this is considered "far". If not set,
@@ -248,10 +248,10 @@
                to brightness values; -1 means keeping the current brightness. -->
     <integer-array name="config_doze_brightness_sensor_to_brightness">
         <item>-1</item> <!-- 0: OFF -->
-        <item>2</item> <!-- 1: NIGHT -->
+        <item>5</item> <!-- 1: NIGHT -->
         <item>5</item> <!-- 2: LOW -->
         <item>27</item> <!-- 3: HIGH -->
-        <item>28</item> <!-- 4: SUN -->
+        <item>27</item> <!-- 4: SUN -->
     </integer-array>
 
     <!-- Doze: Table that translates sensor values from the doze_brightness_sensor_type sensor
@@ -260,14 +260,14 @@
                -1 means keeping the current opacity. -->
     <integer-array name="config_doze_brightness_sensor_to_scrim_opacity">
         <item>-1</item> <!-- 0: OFF -->
-        <item>0</item> <!-- 1: NIGHT -->
+        <item>133</item> <!-- 1: NIGHT -->
         <item>0</item> <!-- 2: LOW -->
         <item>0</item> <!-- 3: HIGH -->
         <item>0</item> <!-- 4: SUN -->
     </integer-array>
 
     <!-- Doze: whether the double tap sensor reports 2D touch coordinates -->
-    <bool name="doze_double_tap_reports_touch_coordinates">false</bool>
+    <bool name="doze_double_tap_reports_touch_coordinates">true</bool>
 
     <!-- Number of times to show the strong alarm warning text in the volume dialog -->
     <integer name="zen_mode_alarm_warning_threshold">5</integer>
