@@ -36,7 +36,7 @@
     <bool name="config_allow_edit_carrier_enabled" translatable="false">false</bool>
 
     <!-- When true enable color temperature setting. -->
-    <bool name="config_enableColorTemperature">false</bool>
+    <bool name="config_enableColorTemperature">true</bool>
 
     <!-- Whether to show Camera laser sensor switch in Developer Options -->
     <bool name="config_show_camera_laser_sensor">false</bool>
@@ -63,10 +63,10 @@
     <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
 
     <!-- When true enable gesture setting. -->
-    <bool name="config_gesture_settings_enabled">false</bool>
+    <bool name="config_gesture_settings_enabled">true</bool>
 
     <!-- If the Storage Manager settings are enabled. -->
-    <bool name="config_storage_manager_settings_enabled">false</bool>
+    <bool name="config_storage_manager_settings_enabled">true</bool>
 
     <!-- If the support features are enabled. -->
     <bool name="config_support_enabled">false</bool>
@@ -201,7 +201,7 @@
          Note that this is different from whether it can control the vibration amplitude as some
          devices will be able to vary their amplitude but do not possess enough dynamic range to
          have distinct intensity levels -->
-    <bool name="config_vibration_supports_multiple_intensities">false</bool>
+    <bool name="config_vibration_supports_multiple_intensities">true</bool>
 
     <!--
         Whether or not the homepage should be powered by legacy suggestion (versus contextual cards)
@@ -210,7 +210,7 @@
     <bool name="config_use_legacy_suggestion">true</bool>
 
     <!-- Whether or not homepage should display user's account avatar -->
-    <bool name="config_show_avatar_in_homepage">false</bool>
+    <bool name="config_show_avatar_in_homepage">true</bool>
 
     <!-- Whether or not emergency info tile should display in device info page -->
     <bool name="config_show_emergency_info_in_device_info">true</bool>
@@ -327,7 +327,7 @@
     <bool name="config_show_private_dns_settings">true</bool>
 
     <!-- Whether memory from app_info_settings is available or not. -->
-    <bool name="config_show_app_info_settings_memory">false</bool>
+    <bool name="config_show_app_info_settings_memory">true</bool>
 
     <!-- Whether battery from app_info_settings is available or not. -->
     <bool name="config_show_app_info_settings_battery">true</bool>
@@ -426,7 +426,7 @@
     <bool name="config_show_reset_dashboard">true</bool>
 
     <!-- Whether system_update_settings should be shown or not. -->
-    <bool name="config_show_system_update_settings">true</bool>
+    <bool name="config_show_system_update_settings">false</bool>
 
     <!-- Whether device_model should be shown or not. -->
     <bool name="config_show_device_model">true</bool>
@@ -490,7 +490,7 @@
     <bool name="config_nfc_detection_point">false</bool>
 
     <!-- Whether to show Smooth Display feature in Settings Options -->
-    <bool name="config_show_smooth_display">false</bool>
+    <bool name="config_show_smooth_display">true</bool>
 
     <!-- Whether to show emergency gesture in Settings -->
     <bool name="config_show_emergency_gesture_settings">true</bool>
