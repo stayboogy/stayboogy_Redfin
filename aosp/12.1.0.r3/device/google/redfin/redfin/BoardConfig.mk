@@ -37,3 +37,4 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := false
 
   -include vendor/google_devices/$(TARGET_BOOTLOADER_BOARD_NAME)/proprietary/BoardConfigVendor.mk
 endif
+
