@@ -1,0 +1,42 @@
+## HOW TO ROOT [PROPERLY]
+
+The Following Must Be Done at Install Time or You Will Have to Manually Wipe Your Device After This To Restore a Working Boot and Working Radio
+
+
+Follow Directions Exactly
+
+
+1) When the Device Flash Process is near the end, when in fastbootd mode, 
+make sure you are watching for the exact reboot moment and begin holding volume down as the screen goes black and hold until the bootloader shows
+
+
+If you fail at this, you can still root, but you'll have to wipe all your userdata manually.  Best To Follow The Above Direction Exactly
+
+
+2) copy the vbmeta.img and vbmeta_system.img from the update.zip inside the installer to your working directory where the bootloader.img and radio.img are
+
+3) Execute these commands exactly as typed:
+
+fastboot flash --disable-verity --disable-verification vbmeta vbmeta.img
+
+fastboot flash --disable-verity --disable-verification vbmeta_system vbmeta_system.img
+
+fastboot reboot
+
+4) Once into the System, install latest Magisk
+
+5) Copy the boot.img from the update.zip inside the installer to your phone's internal storage
+
+6) Patch the boot.img with Magisk
+
+7) Copy patched boot.img to your working directory again and rename to root-boot.img
+
+8) Reboot to Bootloader
+
+9) If not still open, open Adminstrator Command Prompt from your working directory and execute this command:
+
+fastboot flash boot root-boot.img
+
+fastboot reboot
+
+10) You are now Properly Rooted
