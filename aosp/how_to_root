@@ -5,13 +5,12 @@ The Following Must Be Done at Install Time or You Will Have to Manually Wipe You
 
 Follow Directions Exactly
 
+as
 
-1) When the Device Flash Process is near the end, when in fastbootd mode, 
-make sure you are watching for the exact reboot moment and begin holding volume down as the screen goes black and hold until the bootloader shows
+I no longer provide rooted boot.img for security reasons as adb is root already from terminal
 
 
-If you fail at this, you can still root, but you'll have to wipe all your userdata manually.  Best To Follow The Above Direction Exactly
-
+1) know that you will have to wipe all userdata after you root for your radio to work.  best to do this at first install before you install all your apps and mods
 
 2) copy the vbmeta.img and vbmeta_system.img from the update.zip inside the installer to your working directory where the bootloader.img and radio.img are
 
@@ -37,6 +36,12 @@ fastboot reboot
 
 fastboot flash boot root-boot.img
 
-fastboot reboot
+10) fastboot reboot bootloader
 
-10) You are now Properly Rooted
+and reboot into recovery from the menu on your phone using the buttons
+
+11) wipe all userdata
+
+12) reboot into the system
+
+13) You are now Properly Rooted
