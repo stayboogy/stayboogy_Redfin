@@ -31,6 +31,7 @@
 #include <unistd.h>
 
 #include <atomic>
+#include <filesystem>
 #include <string>
 #include <thread>
 #include <vector>
@@ -60,6 +61,8 @@
 #include "recovery_utils/logging.h"
 #include "recovery_utils/roots.h"
 
+namespace fs = std::filesystem;
+
 static constexpr const char* COMMAND_FILE = "/cache/recovery/command";
 static constexpr const char* LOCALE_FILE = "/cache/recovery/last_locale";
 
@@ -72,6 +75,13 @@ static bool IsRoDebuggable() {
 static bool IsDeviceUnlocked() {
   return "orange" == android::base::GetProperty("ro.boot.verifiedbootstate", "");
 }
+
+std::string get_build_type() {
+  return android::base::GetProperty("ro.build.type", "");
+}
+
+static constexpr const char* adb_keys_data = "/data/misc/adb/adb_keys";
+static constexpr const char* adb_keys_root = "/adb_keys";
 
 static void UiLogger(android::base::LogId /* id */, android::base::LogSeverity severity,
                      const char* /* tag */, const char* /* file */, unsigned int /* line */,
@@ -184,6 +194,20 @@ static std::string load_locale_from_cache() {
   }
 
   return android::base::Trim(content);
+}
+
+static void copy_userdata_files() {
+  if (ensure_path_mounted("/data") == 0) {
+    if (access(adb_keys_root, F_OK) != 0) {
+      if (access(adb_keys_data, R_OK) == 0) {
+        std::error_code ec;  // to invoke the overloaded copy_file() that won't throw.
+        if (!fs::copy_file(adb_keys_data, adb_keys_root, ec)) {
+          PLOG(ERROR) << "Failed to copy adb keys";
+        }
+      }
+    }
+    ensure_path_unmounted("/data");
+  }
 }
 
 // Sets the usb config to 'state'.
@@ -330,6 +354,10 @@ int main(int argc, char** argv) {
   // Take action to refresh pmsg contents
   __android_log_pmsg_file_read(LOG_ID_SYSTEM, ANDROID_LOG_INFO, filter, logrotate, &do_rotate);
 
+  // Clear umask for packages that copy files out to /tmp and then over
+  // to /system without properly setting all permissions (eg. gapps).
+  umask(0);
+
   time_t start = time(nullptr);
 
   // redirect_stdio should be called only in non-sideload mode. Otherwise we may have two logger
@@ -466,6 +494,12 @@ int main(int argc, char** argv) {
   std::thread listener_thread(ListenRecoverySocket, ui, std::ref(action));
   listener_thread.detach();
 
+  // Set up adb_keys and enable root before starting ADB.
+  if (IsRoDebuggable() && !fastboot) {
+    copy_userdata_files();
+    android::base::SetProperty("service.adb.root", "1");
+  }
+
   while (true) {
     // We start adbd in recovery for the device with userdebug build or a unlocked bootloader.
     std::string usb_config =
@@ -538,7 +572,7 @@ int main(int argc, char** argv) {
       }
 
       case Device::ENTER_FASTBOOT:
-        if (android::fs_mgr::LogicalPartitionsMapped()) {
+	if (logical_partitions_mapped()) {
           ui->Print("Partitions may be mounted - rebooting to enter fastboot.");
           Reboot("fastboot");
         } else {

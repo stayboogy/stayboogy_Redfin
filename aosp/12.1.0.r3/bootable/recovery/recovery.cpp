@@ -168,6 +168,15 @@ static bool yes_no(Device* device, const char* question1, const char* question2)
   return (chosen_item == 1);
 }
 
+bool ask_to_continue_unverified(Device* device) {
+  if (get_build_type() == "user") {
+    return false;
+  } else {
+    device->GetUI()->SetProgressType(RecoveryUI::EMPTY);
+    return yes_no(device, "Signature verification failed", "Install anyway?");
+  }
+}
+
 static bool ask_to_wipe_data(Device* device) {
   std::vector<std::string> headers{ "Wipe all user data?", "  THIS CAN NOT BE UNDONE!" };
   std::vector<std::string> items{ " Cancel", " Factory data reset" };
@@ -703,7 +712,7 @@ Device::BuiltinAction start_recovery(Device* device, const std::vector<std::stri
 
   std::vector<std::string> title_lines =
       android::base::Split(android::base::GetProperty("ro.build.fingerprint", ""), ":");
-  title_lines.insert(std::begin(title_lines), "Android Recovery");
+  title_lines.insert(std::begin(title_lines), "Stayboogy Pixel Recovery");
   ui->SetTitle(title_lines);
 
   ui->ResetKeyInterruptStatus();
