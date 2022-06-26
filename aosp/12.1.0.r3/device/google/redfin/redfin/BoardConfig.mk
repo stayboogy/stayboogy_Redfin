@@ -28,13 +28,23 @@ else
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := false
 
-# end
+# GApps Inline
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+TARGET_ARCH := arm64
+
+# lawnchair prebuilt
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+# stayboogy end
 
   include device/google/redbull/BoardConfig-common.mk
+
 
   # Testing related defines
   #BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/r3-setup.sh
 
   -include vendor/google_devices/$(TARGET_BOOTLOADER_BOARD_NAME)/proprietary/BoardConfigVendor.mk
 endif
+
+
 

@@ -1,0 +1,14 @@
+# BoardConfig-stayboogy
+
+# Create Factory Recovery
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := false
+
+# GApps Inline
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+TARGET_ARCH := arm64
+
+# lawnchair prebuilt
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+

@@ -12,7 +12,8 @@ PRODUCT_PACKAGES += \
 	Recorder
 
 PRODUCT_PRODUCT_PROPERTIES +=\
-	ro.build.version.custom=
+	ro.build.version.custom=v2.0
+
 
 # Lawnchair Prebuilt
 #include vendor/stayboogy/opensource/prebuilt/lawnchair/lawnchair.mk

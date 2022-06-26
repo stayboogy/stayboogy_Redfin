@@ -25,7 +25,7 @@ endif
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
 
 # Enable mainline checking
-#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 
 #
 # All components inherited here go to system_ext image
@@ -73,7 +73,7 @@ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 $(call inherit-product, vendor/stayboogy/stayboogy.mk)
 
 PRODUCT_MANUFACTURER := Google
-PRODUCT_BRAND := Android
+PRODUCT_BRAND := AOSP
 PRODUCT_NAME := stayboogy_redfin
 PRODUCT_DEVICE := redfin
-PRODUCT_MODEL := stayboogy AOSP on redfin
+PRODUCT_MODEL := stayboogy Pixel5
