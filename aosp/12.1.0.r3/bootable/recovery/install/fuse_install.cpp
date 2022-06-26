@@ -100,11 +100,15 @@ static std::string BrowseDirectory(const std::string& path, Device* device, Reco
       return "";
     }
 
-    const std::string& item = entries[chosen_item];
-    if (chosen_item == 0) {
-      // Go up but continue browsing (if the caller is BrowseDirectory).
+    if (chosen_item == Device::kGoHome) {
+      return "@";
+    }
+    if (chosen_item == Device::kGoBack || chosen_item == 0) {
+      // Go up but continue browsing (if the caller is browse_directory).
       return "";
     }
+
+    const std::string& item = entries[chosen_item];
 
     std::string new_path = path + "/" + item;
     if (new_path.back() == '/') {
@@ -208,14 +212,14 @@ InstallResult ApplyFromSdcard(Device* device) {
   auto ui = device->GetUI();
   if (ensure_path_mounted(SDCARD_ROOT) != 0) {
     LOG(ERROR) << "\n-- Couldn't mount " << SDCARD_ROOT << ".\n";
-    return INSTALL_ERROR;
+     return INSTALL_NONE;
   }
 
   std::string path = BrowseDirectory(SDCARD_ROOT, device, ui);
   if (path.empty()) {
     LOG(ERROR) << "\n-- No package file selected.\n";
     ensure_path_unmounted(SDCARD_ROOT);
-    return INSTALL_ERROR;
+     return INSTALL_NONE;
   }
 
   // Hint the install function to read from a block map file.

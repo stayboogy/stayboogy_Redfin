@@ -181,8 +181,8 @@ static bool ask_to_wipe_data(Device* device) {
   std::vector<std::string> headers{ "Wipe all user data?", "  THIS CAN NOT BE UNDONE!" };
   std::vector<std::string> items{ " Cancel", " Factory data reset" };
 
-  size_t chosen_item = device->GetUI()->ShowPromptWipeDataConfirmationMenu(
-      headers, items,
+  size_t chosen_item = device->GetUI()->ShowMenu(
+      headers, items, 0, true,
       std::bind(&Device::HandleMenuKey, device, std::placeholders::_1, std::placeholders::_2));
 
   return (chosen_item == 1);
@@ -270,7 +270,10 @@ static void choose_recovery_file(Device* device) {
     if (chosen_item == static_cast<size_t>(RecoveryUI::KeyError::INTERRUPTED)) {
       break;
     }
-    if (entries[chosen_item] == "Back") break;
+    if (chosen_item == Device::kGoHome || chosen_item == Device::kGoBack ||
+        chosen_item == entries.size() - 1) {
+      break;
+    }
 
     device->GetUI()->ShowFile(entries[chosen_item]);
   }
@@ -406,6 +409,10 @@ static Device::BuiltinAction PromptAndWait(Device* device, InstallResult status)
     if (chosen_item == static_cast<size_t>(RecoveryUI::KeyError::INTERRUPTED)) {
       return Device::KEY_INTERRUPTED;
     }
+    // We are already in the main menu
+    if (chosen_item == Device::kGoBack || chosen_item == Device::kGoHome) {
+      continue;
+    }
     // Device-specific code may take some action here. It may return one of the core actions
     // handled in the switch statement below.
     Device::BuiltinAction chosen_action =
@@ -488,6 +495,9 @@ static Device::BuiltinAction PromptAndWait(Device* device, InstallResult status)
         ui->Print("\nInstall from %s completed with status %d.\n", adb ? "ADB" : "SD card", status);
         if (status == INSTALL_REBOOT) {
           return reboot_action;
+        }
+        if (status == INSTALL_NONE) {
+          update_in_progress = false;
         }
 
         if (status == INSTALL_SUCCESS) {
