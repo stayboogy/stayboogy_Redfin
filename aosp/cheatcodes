@@ -1,0 +1,40 @@
+CHEATCODES:
+
+I.  Contacts & Text Message Backup and Restore
+
+Contacts can be exported and imported directly from the app.
+Messages can be exported and restored with adb:
+
+//backup
+
+adb root
+adb pull /data_mirror/data_ce/null/0/com.android.providers.telephony/databases/mmssms.db-journal
+adb pull /data_mirror/data_ce/null/0/com.android.providers.telephony/databases/mmssms.db
+
+//restore
+
+adb root
+adb shell rm /data_mirror/data_ce/null/0/com.android.providers.telephony/databases/mmssms.db-journal
+adb shell rm /data_mirror/data_ce/null/0/com.android.providers.telephony/databases/mmssms.db
+adb reboot
+adb root
+adb push mmssms.db-journal /data_mirror/data_ce/null/0/com.android.providers.telephony/databases
+adb push mmssms.db /data_mirror/data_ce/null/0/com.android.providers.telephony/databases
+adb reboot
+
+
+II.  Backup & Restore Apps+Data between ROM Releases
+
+I have provided a free app in the app repository "oandbackup" that you can backup and restore all apps and their data, user and system both.  I have tested with user apps and it works fine.  This will allow you to backup and restore your actual data without TWRP which is unlikely to ever be working for this ROM.  Also, I am not going to implementing a backup option on the Pixel Recovery I am making either.
+
+Just use to the app to batch backup your user apps and their data, copyt the files to your comptuer, and then copy them back to your phone after you install a new release and pick up right back where you left off.
+
+
+III.  Apps That Require Google Services Framework
+
+If you want to use apps like YouTube and Voice to Text or any other app that requires GSF/GMS from Google, then use the Magisk Module method.  This will not allow you to sign in to any account within any app that requires these services.  However, this will allow you to use the app, just again without any sync or account services.  I am using voice to text just fine without any Google account but with the Magisk Module GApps linked in the thread
+
+
+IV.  App Repository
+
+I have provided a few common apps for your convenience so that you can get to downloading and installing whatever you need should you not have your required apps backed up already before installing this ROM.  I have provided Aurora Store, Magisk, and oandbackup.
