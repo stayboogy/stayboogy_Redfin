@@ -1,0 +1,97 @@
+GApps Magisk Modules Capable with Full Login:
+
+Follow Directions Exactly:
+
+1) Root your phone following the rooting directions linked in the OP
+
+2) Install the Magisk GApps Module of your choice: Stock, Core, or Basic only
+
+3) run:
+adb root
+adb shell
+sqlite3 /data/data/com.google.android.gsf/databases/gservices.db "select * from main where name = \"android_id\";" 
+
+4) copy only the number string from the output of the above commands
+
+4) go here: https://www.google.com/android/uncertified/?pli=1
+
+5) sign in to your Google Account
+
+6) enter the copied string into the "Google Services Framework Android ID box" and certif you aren't a robot, and click "Register"
+
+7) the page should reload and the Android ID you posted should now be listed in the Registered Android IDs at the bottom of the page
+
+8) wait 5-10 minutes and reboot your device (may activate almost immediate after fully closing a GApp and reopening it--not guaranteed)
+
+9) sign into your Google Account
+
+10) Enjoy!
+
+sources:
+https://github.com/wacko1805/magiskgapps/tree/a.12.1v.0.1
+
+Downloads:
+https://sourceforge.net/projects/magiskgapps/files/android-12L-ALPHA/V.0.1/
+
+Stock includes:
+
+    Google Clock
+    Google Play Store
+    Digital Wellbeing
+    Vanced Manager
+    Google Dialer
+    Google Messages
+    Google Contacts
+    Google Drive
+    Gmail
+    Google Calculator
+    Google/Pixel Setup
+    Wizard
+    Google Maps
+    Google Photos
+    GBoard
+    Google Calendar
+    Google Feedback
+    Pixel Launcher
+    Google Files
+    Google
+    Google Play Games
+    GMS
+    Google Service Framework
+    Google Calendar Sync
+    Google contacts Sync
+    ExtraFiles
+    Google Carrier Services
+    Device Health Services
+    Android Device Policy
+    Google Partner Setup
+    Device Personalization
+    Services
+    Google Markup
+    Google Sounds
+    Google Wallpaper
+
+Basic includes:
+
+    Google Clock
+    Vanced Manager
+    Digital Wellbeing
+    Google Dialer
+    Google Messages
+    Google Contacts
+    GMS
+    Google Service Framework
+    Google Calendar Sync
+    Google contacts Sync
+    ExtraFiles
+    Google Carrier Services
+
+Core includes:
+
+    Google Play Store
+    GMS
+    Google Service Framework
+    Google Calendar Sync
+    Google contacts Sync
+    ExtraFiles
+
