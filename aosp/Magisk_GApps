@@ -2,30 +2,43 @@ GApps Magisk Modules Capable with Full Login:
 
 Follow Directions Exactly:
 
-1) Root your phone following the rooting directions linked in the OP
+1) Root your phone following the rooting directions
+
+https://github.com/stayboogy/stayboogy_Redfin/blob/main/aosp/how_to_root
+
 
 2) Install the Magisk GApps Module of your choice: Stock, Core, or Basic only
+
 
 3) run:
 adb root
 adb shell
 sqlite3 /data/data/com.google.android.gsf/databases/gservices.db "select * from main where name = \"android_id\";" 
 
+
 4) copy only the number string from the output of the above commands
+
 
 4) go here: https://www.google.com/android/uncertified/?pli=1
 
+
 5) sign in to your Google Account
+
 
 6) enter the copied string into the "Google Services Framework Android ID box" and certif you aren't a robot, and click "Register"
 
+
 7) the page should reload and the Android ID you posted should now be listed in the Registered Android IDs at the bottom of the page
+
 
 8) wait 5-10 minutes and reboot your device (may activate almost immediate after fully closing a GApp and reopening it--not guaranteed)
 
+
 9) sign into your Google Account
 
+
 10) Enjoy!
+
 
 sources:
 https://github.com/wacko1805/magiskgapps/tree/a.12.1v.0.1
